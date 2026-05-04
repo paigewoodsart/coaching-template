@@ -148,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Parallax ───────────────────────────────────────────
   initParallax();
 
+
 });
 
 /* =========================================================
@@ -192,3 +193,4 @@ function initParallax() {
   // Set initial position before first scroll
   tick();
 }
+

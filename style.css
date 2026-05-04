@@ -57,6 +57,31 @@ img {
   display: block;
 }
 
+h1, h2, h3, h4, p {
+  text-wrap: pretty;
+}
+
+.demo-notice {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(3, 25, 38, 0.4);
+  border-top: 1px solid rgba(3, 25, 38, 0.15);
+  padding-top: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.newsletter .demo-notice {
+  color: rgba(244, 233, 205, 0.35);
+  border-top-color: rgba(244, 233, 205, 0.15);
+}
+
+.contact-main .demo-notice {
+  color: rgba(244, 233, 205, 0.45);
+  border-top-color: rgba(244, 233, 205, 0.2);
+}
+
 /* =========================================================
    Paper Grain Overlay
    ========================================================= */
@@ -115,13 +140,14 @@ img {
 }
 
 .nav-logo {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 700;
-  font-size: 1.25rem;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--teal);
   text-decoration: none;
-  letter-spacing: 0.01em;
 }
 
 .nav-links {
@@ -987,7 +1013,7 @@ body.nav-open .nav-mobile {
    ========================================================= */
 
 .newsletter {
-  background: #e8dfc6;
+  background: var(--ink-black);
 }
 
 .newsletter-inner {
@@ -996,19 +1022,26 @@ body.nav-open .nav-mobile {
   margin: 0 auto;
 }
 
+.newsletter .section-label {
+  color: var(--muted-teal);
+}
+
 .newsletter-heading {
   font-family: var(--font-serif);
   font-weight: 700;
   font-size: clamp(2rem, 4vw, 2.75rem);
   line-height: 1.15;
   margin-bottom: 0.75rem;
+  color: var(--vanilla-cream);
+  text-wrap: pretty;
 }
 
 .newsletter-inner > p {
   font-size: 1rem;
   line-height: 1.7;
-  color: rgba(3, 25, 38, 0.68);
+  color: rgba(244, 233, 205, 0.68);
   margin-bottom: 2.5rem;
+  text-wrap: pretty;
 }
 
 .newsletter-field {
@@ -1023,18 +1056,18 @@ body.nav-open .nav-mobile {
   flex: 1;
   background: none;
   border: none;
-  border-bottom: 2px solid var(--border);
+  border-bottom: 2px solid rgba(244, 233, 205, 0.25);
   padding: 0.75rem 0;
   font-family: var(--font-sans);
   font-size: 1rem;
-  color: var(--ink-black);
+  color: var(--vanilla-cream);
   outline: none;
   transition: border-color 0.3s ease;
   min-width: 0;
 }
 
 .newsletter-form input[type="email"]::placeholder {
-  color: rgba(3, 25, 38, 0.38);
+  color: rgba(244, 233, 205, 0.38);
 }
 
 .newsletter-form input[type="email"]:focus {
@@ -1232,7 +1265,31 @@ body.nav-open .nav-mobile {
    ========================================================= */
 
 @media (max-width: 768px) {
-  /* Nav */
+  /* Nav — transparent over hero photo, gains background on scroll */
+  .nav {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: none;
+    transition: background 0.4s ease, border-color 0.4s ease;
+  }
+
+  .nav.scrolled {
+    background: rgba(244, 233, 205, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Only go transparent on pages with a hero photo behind the nav */
+  body:has(.hero) .nav:not(.scrolled) .nav-logo {
+    color: #f4e9cd;
+  }
+
+  body:has(.hero) .nav:not(.scrolled) .nav-toggle span {
+    background: #f4e9cd;
+  }
+
   .nav-links {
     display: none;
   }
@@ -1241,23 +1298,65 @@ body.nav-open .nav-mobile {
     display: flex;
   }
 
-  /* Hero */
+  /* Hero — full-bleed photo behind nav, H1 at bottom, sub+buttons below fold */
   .hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-
-  .hero-text {
-    order: 2;
-    padding: 2.5rem 1.5rem 3rem;
-    max-width: 100%;
+    display: block;
+    position: relative;
+    margin-top: -72px;
+    min-height: 100svh;
+    background: var(--vanilla-cream);
+    overflow: visible;
   }
 
   .hero-image {
-    order: 1;
-    height: 70vw;
-    min-height: 320px;
-    max-height: 480px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100svh;
+    overflow: hidden;
+    z-index: 0;
+    will-change: transform, opacity;
+  }
+
+  .hero-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .hero-text {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 60svh 1.5rem 3rem;
+    max-width: 100%;
+    background: none;
+  }
+
+  .hero .hero-h1 {
+    color: #f4e9cd;
+    font-size: clamp(2.2rem, 8vw, 3rem);
+    margin-bottom: 25svh;
+    text-shadow: 0 2px 12px rgba(3, 25, 38, 0.35);
+  }
+
+  .hero .hero-h1 em {
+    color: #f4e9cd;
+  }
+
+  .hero-text .section-label {
+    color: rgba(244, 233, 205, 0.9);
+    margin-bottom: 0.75rem;
+    text-shadow: 0 1px 6px rgba(3, 25, 38, 0.4);
+  }
+
+  .hero-sub {
+    color: rgba(3, 25, 38, 0.72);
   }
 
 
@@ -1292,8 +1391,8 @@ body.nav-open .nav-mobile {
   }
 
   /* Process */
-  .process-section {
-    padding: clamp(4rem, 8vw, 7rem) 0;
+  .section.process-section {
+    padding: calc(clamp(4rem, 8vw, 7rem) + 20px) 0;
   }
 
   .process-grid {
