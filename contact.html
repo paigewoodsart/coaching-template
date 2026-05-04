@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work With Me — Paige Woods</title>
+  <meta name="description" content="Reach out to Paige Woods to explore aligned living coaching or creative consulting. Sessions offered remotely." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Paper grain texture -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════════════════ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Paige Woods</a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#process">Process</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="contact.html" class="btn-nav" aria-current="page">Work with me</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile navigation overlay -->
+  <div class="nav-mobile" id="navMobile" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+    <button class="nav-mobile-close" aria-label="Close menu">&#10005;</button>
+    <ul role="list">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#process">Process</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="contact.html">Work with me</a></li>
+    </ul>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       CONTACT
+  ══════════════════════════════════════════════════════ -->
+  <main class="section contact-main" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div class="contact-form-col">
+          <span class="section-label hero-animate">Contact</span>
+          <h1 class="section-heading hero-animate" id="contact-heading">Work with <em>me.</em></h1>
+          <p class="contact-intro hero-animate">
+            Whether you are navigating burnout, rebuilding your life, developing a creative project,
+            or searching for a more aligned way of living, I would love to hear from you.
+            This work is collaborative, thoughtful, and deeply personal.
+            You can reach out exactly as you are.
+          </p>
+
+          <form class="contact-form reveal" action="#" onsubmit="return false;" novalidate>
+
+            <div class="form-field">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                placeholder="Your name"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                placeholder="your@email.com"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="message">What brings you here?</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Share as much or as little as you like."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send &rarr;</button>
+
+          </form>
+        </div>
+
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-main">
+        <div>
+          <p class="footer-name">Paige Woods</p>
+          <p class="footer-tagline">Alignment over performance.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="index.html#about">About</a>
+          <a href="index.html#services">Services</a>
+          <a href="index.html#process">Process</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Paige Woods</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
