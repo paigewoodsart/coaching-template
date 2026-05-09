@@ -61,6 +61,31 @@ h1, h2, h3, h4, p {
   text-wrap: pretty;
 }
 
+.template-disclaimer {
+  background: #f2c6d0;
+  padding: 1.25rem clamp(1.5rem, 5vw, 4rem);
+  text-align: center;
+}
+
+.template-disclaimer p {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: #3a2a2e;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.template-disclaimer a {
+  color: #b05080;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.template-disclaimer a:hover {
+  color: #8c3a62;
+}
+
 .demo-notice {
   font-family: var(--font-sans);
   font-size: 0.7rem;
